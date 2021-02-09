@@ -1,16 +1,5 @@
 .row {
-}
-
-.row-poster {
-  object-fit: contain;
-  width: 100%;
-  max-height: 100px;
-  margin-right: 8px;
-  transition: transform 450ms;
-}
-
-.row-poster:hover {
-  transform: scale(1.1);
+  margin-left: 20px;
 }
 
 .row-posters {
@@ -22,4 +11,25 @@
 
 .row-posters::-webkit-scrollbar {
   display: none;
+}
+
+.row-poster {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  margin-right: 8px;
+  transition: transform 450ms;
+}
+
+.row-poster:hover {
+  transform: scale(1.08);
+}
+
+.row-posterLarge {
+  max-height: 250px;
+}
+
+.row-posterLarge:hover {
+  transform: scale(1.1);
+  opacity: 1;
 }
