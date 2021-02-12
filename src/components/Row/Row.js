@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "../../axios";
 import "./Row.css";
 import Youtube from "react-youtube";
-import movieTrailer from "movie-trailer";
+import requests from "../../request";
 
-const base_url = "https://image.tmdb.org/t/p/w500/";
+const image_base_url = "https://image.tmdb.org/t/p/w500/";
+const video_base_url = `http://api.themoviedb.org/3/movie/`;
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
@@ -29,20 +30,29 @@ function Row({ title, fetchUrl, isLargeRow }) {
     },
   };
 
-  const handleMovieClick = (movie) => {
-    let loadedTrailerUrl = null;
-    movieTrailer(movie?.name || "")
-      .then((url) => {
-        console.log(url);
-        const urlParams = new URLSearchParams(new URL(url).search);
-        loadedTrailerUrl = urlParams.get("v");
+  const fetchTrailerUrl = (id) => {
+    const url = `${video_base_url}${id}${requests.fetchMovieTrailer}`;
+    let loadedTrailerUrl = null,
+      loadedTrailerUrls = [];
+    const promises = [];
+    promises.push(
+      axios.get(url).then((response) => {
+        loadedTrailerUrls = response.data.results;
+        loadedTrailerUrl = loadedTrailerUrls[0].key;
+      })
+    );
+    Promise.all(promises)
+      .then(() => {
         if (loadedTrailerUrl === trailerUrl) {
           setTrailerUrl("");
         } else {
-          setTrailerUrl(urlParams.get("v"));
+          setTrailerUrl(loadedTrailerUrl);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setTrailerUrl("");
+        console.log(error);
+      });
   };
 
   return (
@@ -55,11 +65,11 @@ function Row({ title, fetchUrl, isLargeRow }) {
           <img
             key={movie.id}
             className={`row-poster ${isLargeRow && "row-posterLarge"}`}
-            src={`${base_url}${
+            src={`${image_base_url}${
               isLargeRow ? movie?.poster_path : movie?.backdrop_path
             }`}
             alt={movie?.title || movie?.name || movie?.original_name}
-            onClick={() => handleMovieClick(movie)}
+            onClick={() => fetchTrailerUrl(movie.id)}
           />
         ))}
       </div>
