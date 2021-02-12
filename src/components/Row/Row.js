@@ -5,7 +5,7 @@ import Youtube from "react-youtube";
 import requests from "../../request";
 
 const image_base_url = "https://image.tmdb.org/t/p/w500/";
-const video_base_url = `http://api.themoviedb.org/3/movie/`;
+const video_base_url = `http://api.themoviedb.org/3/`;
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
@@ -30,8 +30,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
     },
   };
 
-  const fetchTrailerUrl = (id) => {
-    const url = `${video_base_url}${id}${requests.fetchMovieTrailer}`;
+  const fetchTrailerUrl = (id, type) => {
+    const url = `${video_base_url}${type}/${id}${requests.fetchMovieTrailer}`;
     let loadedTrailerUrl = null,
       loadedTrailerUrls = [];
     const promises = [];
@@ -58,9 +58,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   return (
     <div className="row">
       <h2>{title}</h2>
-
       <div className="row-posters">
-        {/* posters */}
         {movies.map((movie) => (
           <img
             key={movie.id}
@@ -69,7 +67,9 @@ function Row({ title, fetchUrl, isLargeRow }) {
               isLargeRow ? movie?.poster_path : movie?.backdrop_path
             }`}
             alt={movie?.title || movie?.name || movie?.original_name}
-            onClick={() => fetchTrailerUrl(movie.id)}
+            onClick={() =>
+              fetchTrailerUrl(movie.id, movie.title ? "movie" : "tv")
+            }
           />
         ))}
       </div>
