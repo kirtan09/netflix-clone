@@ -7,17 +7,17 @@ function Navbar() {
   const [handleShow, setHandleShow] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 150) {
-        setHandleShow(true);
-      } else {
-        setHandleShow(false);
-      }
-    });
-    return () => {
-      window.removeEventListener("scroll");
-    };
+    window.addEventListener("scroll", navbarTransition);
+    return () => window.removeEventListener("scroll");
   }, []);
+
+  const navbarTransition = () => {
+    if (window.scrollY > 150) {
+      setHandleShow(true);
+    } else {
+      setHandleShow(false);
+    }
+  };
 
   return (
     <div className={`navbar ${handleShow && "navbar-black"}`}>
