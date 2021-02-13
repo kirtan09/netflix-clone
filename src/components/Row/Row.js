@@ -5,7 +5,7 @@ import Youtube from "react-youtube";
 import requests from "../../request";
 
 const image_base_url = "https://image.tmdb.org/t/p/w500/";
-const video_base_url = `http://api.themoviedb.org/3/`;
+const video_base_url = `https://api.themoviedb.org/3/`;
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
