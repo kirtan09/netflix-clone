@@ -9,21 +9,29 @@ function Banner() {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
-      setMovie(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length)
-        ]
-      );
-      return request;
-    }
-    fetchData();
+    fetchBannerData();
   }, []);
 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
+
+  const fetchBannerData = () => {
+    let promise = null;
+    promise = axios
+      .get(requests.fetchNetflixOriginals)
+      .then((response) => {
+        setMovie(
+          response.data.results[
+            Math.floor(Math.random() * response.data.results.length)
+          ]
+        );
+      })
+      .catch((error) => {
+        setMovie("");
+        console.log(error);
+      });
+  };
 
   return (
     <header
