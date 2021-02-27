@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import "./Navbar.css";
+import "./Navbar.scss";
 import Logo from "../../assets/NetflixLogo.png";
 import Avatar from "../../assets/NetflixAvatar.png";
+import { useHistory } from "react-router-dom";
 
 function Navbar() {
   const [handleShow, setHandleShow] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     window.addEventListener("scroll", navbarTransition);
-    return () => window.removeEventListener("scroll");
+    return () => window.removeEventListener("scroll", navbarTransition);
   }, []);
 
   const navbarTransition = () => {
@@ -19,10 +21,28 @@ function Navbar() {
     }
   };
 
+  const openHome = () => {
+    history.push("/");
+  };
+
+  const openProfile = () => {
+    history.push("/profile");
+  };
+
   return (
     <div className={`navbar ${handleShow && "navbar-black"}`}>
-      <img className="navbar-logo" src={Logo} alt="Netflix Logo" />
-      <img className="navbar-avatar" src={Avatar} alt="Avatar" />
+      <img
+        className="navbar-logo"
+        src={Logo}
+        alt="Netflix Logo"
+        onClick={openHome}
+      />
+      <img
+        className="navbar-avatar"
+        src={Avatar}
+        alt="Avatar"
+        onClick={openProfile}
+      />
     </div>
   );
 }

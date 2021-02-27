@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Logo from "../../assets/NetflixLogo.png";
-import "./LoginScreen.css";
+import "./LoginScreen.scss";
 import SignInScreen from "../SignInScreen/SignInScreen";
 
 function LoginScreen() {
-  const [signIn, setSignIn] = useState(false);
   const [signUp, setSignUp] = useState(false);
 
   return (
@@ -14,7 +13,7 @@ function LoginScreen() {
         <button
           className="loginScreen-signIn"
           alt="Sign In"
-          onClick={() => setSignIn(true)}
+          onClick={() => setSignUp(true)}
         >
           Sign In
         </button>
