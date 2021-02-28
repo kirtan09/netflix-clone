@@ -6,9 +6,15 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import { auth } from "../../firebase";
 import PlansScreen from "../PlansScreen/PlansScreen";
+import { getSubscription } from "../../features/subscriptionSlice";
 
 function ProfileScreen() {
   const user = useSelector(selectUser);
+  const subscription = useSelector(getSubscription);
+
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   return (
     <div className="profileScreen">
@@ -20,7 +26,9 @@ function ProfileScreen() {
           <div className="profileScreenDetails">
             <h2>{user.email}</h2>
             <div className="profileScreenPlans">
-              <h3>Plans</h3>
+              <h3>
+                Plans {`(Current Plan: ${capitalize(subscription.role)})`}
+              </h3>
               <PlansScreen />
             </div>
             <button
