@@ -5,6 +5,10 @@
   opacity: 0.7;
 }
 
+.plansScreenPlanDisabled button {
+  background-color: gray !important;
+}
+
 .plansScreenPlan:hover {
   opacity: 1;
 }
