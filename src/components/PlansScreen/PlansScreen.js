@@ -108,9 +108,6 @@ function PlansScreen() {
     });
   };
 
-  console.log(products);
-  console.log(subscription);
-
   return (
     <div className="plansScreen">
       <br />

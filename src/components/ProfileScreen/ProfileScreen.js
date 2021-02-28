@@ -20,7 +20,7 @@ function ProfileScreen() {
     <div className="profileScreen">
       <Navbar />
       <div className="profileScreenBody">
-        <h1>Edit Profile</h1>
+        <h1>{subscription.role ? "Edit profile" : "Select a plan"}</h1>
         <div className="profileScreenInfo">
           <img src={Avatar} alt="avatar" />
           <div className="profileScreenDetails">
