@@ -5,6 +5,7 @@ import Avatar from "../../assets/NetflixAvatar.png";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import { auth } from "../../firebase";
+import PlansScreen from "../PlansScreen/PlansScreen";
 
 function ProfileScreen() {
   const user = useSelector(selectUser);
@@ -20,6 +21,7 @@ function ProfileScreen() {
             <h2>{user.email}</h2>
             <div className="profileScreenPlans">
               <h3>Plans</h3>
+              <PlansScreen />
             </div>
             <button
               className="profileScreenSignOut"
