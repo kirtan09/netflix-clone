@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../axios";
 import requests from "../../request";
-import "./Banner.css";
+import "./Banner.scss";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
@@ -17,8 +17,7 @@ function Banner() {
   }
 
   const fetchBannerData = () => {
-    let promise = null;
-    promise = axios
+    axios
       .get(requests.fetchNetflixOriginals)
       .then((response) => {
         setMovie(

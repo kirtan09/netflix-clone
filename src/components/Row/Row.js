@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../axios";
-import "./Row.css";
+import "./Row.scss";
 import Youtube from "react-youtube";
 import requests from "../../request";
 
@@ -34,8 +34,7 @@ function Row(props) {
     const url = `${video_base_url}${type}/${id}${requests.fetchMovieTrailer}`;
     let loadedTrailerUrl = null,
       loadedTrailerUrls = [];
-    let promise = null;
-    promise = axios
+    axios
       .get(url)
       .then((response) => {
         loadedTrailerUrls = response.data.results;
