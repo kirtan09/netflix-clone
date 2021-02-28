@@ -27,7 +27,9 @@ function ProfileScreen() {
             <h2>{user.email}</h2>
             <div className="profileScreenPlans">
               <h3>
-                Plans {`(Current Plan: ${capitalize(subscription.role)})`}
+                Plans{" "}
+                {subscription.role &&
+                  `(Current Plan: ${capitalize(subscription.role)})`}
               </h3>
               <PlansScreen />
             </div>
