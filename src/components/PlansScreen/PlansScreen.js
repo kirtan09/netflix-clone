@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
+import {
+  getSubscription,
+  setSubscription,
+} from "../../features/subscriptionSlice";
 import db from "../../firebase";
 import "./PlansScreen.scss";
 import { loadStripe } from "@stripe/stripe-js";
 
 function PlansScreen() {
   const [products, setProducts] = useState([]);
-  const [subscription, setSubscription] = useState(null);
   const user = useSelector(selectUser);
+  const subscription = useSelector(getSubscription);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     //get the customers collection
@@ -23,15 +28,18 @@ function PlansScreen() {
         //for each subscription in query snapshot
         querySnapshot.forEach(async (subscription) => {
           //set the subscription to an object
-          setSubscription({
-            role: subscription.data().role,
-            current_period_end: subscription.data().current_period_end.seconds,
-            current_period_start: subscription.data().current_period_start
-              .seconds,
-          });
+          dispatch(
+            setSubscription({
+              role: subscription.data().role,
+              current_period_end: subscription.data().current_period_end
+                .seconds,
+              current_period_start: subscription.data().current_period_start
+                .seconds,
+            })
+          );
         });
       });
-  }, [user.uid]);
+  }, [user.uid, dispatch]);
 
   useEffect(() => {
     //get the products collection from firebase
@@ -99,9 +107,6 @@ function PlansScreen() {
       }
     });
   };
-
-  console.log(products);
-  console.log(subscription);
 
   return (
     <div className="plansScreen">

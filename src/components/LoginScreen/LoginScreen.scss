@@ -1,6 +1,4 @@
 .loginScreen {
-  position: relative;
-  height: 100%;
   background: url("../../assets/NetflixLoginBackground.jpg") center no-repeat;
   background-size: cover;
 }
@@ -41,8 +39,8 @@
 }
 
 .loginScreen-body {
-  position: absolute;
-  top: 30%;
+  position: fixed;
+  top: 25%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -77,7 +75,7 @@
   padding: 10px;
   outline: none;
   height: 30px;
-  width: 30%;
+  width: 40%;
   border: none;
   max-width: 600px;
 }
@@ -94,4 +92,16 @@
   font-weight: 600;
   outline: none;
   cursor: pointer;
+}
+
+@media (max-width: 900px) and (max-height: 900px) {
+  .loginScreen-body h1 {
+    font-size: 2.125rem;
+  }
+  .loginScreen-body h2 {
+    font-size: 1.5rem;
+  }
+  .loginScreen-body h3 {
+    font-size: 1rem;
+  }
 }

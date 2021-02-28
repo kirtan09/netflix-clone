@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Logo from "../../assets/NetflixLogo.png";
 import "./LoginScreen.scss";
 import SignInScreen from "../SignInScreen/SignInScreen";
 
 function LoginScreen() {
   const [signUp, setSignUp] = useState(false);
+  const emailRef = useRef(null);
+
+  const getStarted = () => {
+    setSignUp(true);
+  };
 
   return (
     <div className="loginScreen">
@@ -30,10 +35,14 @@ function LoginScreen() {
             </h3>
             <div className="loginScreen-input">
               <form>
-                <input type="email" placeholder="Email Address" />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  ref={emailRef}
+                />
                 <button
                   className="loginScreen-getStarted"
-                  onClick={() => setSignUp(true)}
+                  onClick={() => getStarted()}
                 >
                   Get Started
                 </button>
@@ -41,7 +50,7 @@ function LoginScreen() {
             </div>
           </>
         ) : (
-          <SignInScreen />
+          <SignInScreen emailAddress={emailRef.current.value} />
         )}
       </div>
     </div>

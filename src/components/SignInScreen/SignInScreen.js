@@ -2,21 +2,18 @@ import React, { useRef } from "react";
 import { auth } from "../../firebase";
 import "./SignInScreen.scss";
 
-function SignInScreen() {
+function SignInScreen(props) {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
   const signUp = (e) => {
     e.preventDefault();
-
     auth
       .createUserWithEmailAndPassword(
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then((authUser) => {
-        console.log(authUser);
-      })
+      .then()
       .catch((error) => {
         alert(error.message);
       });
@@ -29,9 +26,7 @@ function SignInScreen() {
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then((authUser) => {
-        console.log(authUser);
-      })
+      .then()
       .catch((error) => {
         alert(error.message);
       });
@@ -40,8 +35,13 @@ function SignInScreen() {
   return (
     <div className="signInScreen">
       <form>
-        <h1>Sign Up</h1>
-        <input ref={emailRef} placeholder="Email" type="email" />
+        <h1>Sign In/ Sign Up</h1>
+        <input
+          ref={emailRef}
+          placeholder="Email"
+          type="email"
+          defaultValue={props.emailAddress}
+        />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <button type="submit" onClick={signIn}>
           Sign In
