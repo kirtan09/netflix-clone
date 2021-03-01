@@ -7,10 +7,12 @@ import { selectUser } from "../../features/userSlice";
 import { auth } from "../../firebase";
 import PlansScreen from "../PlansScreen/PlansScreen";
 import { getSubscription } from "../../features/subscriptionSlice";
+import { useHistory } from "react-router-dom";
 
 function ProfileScreen() {
   const user = useSelector(selectUser);
   const subscription = useSelector(getSubscription);
+  const history = useHistory();
 
   const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -33,12 +35,21 @@ function ProfileScreen() {
               </h3>
               <PlansScreen />
             </div>
-            <button
-              className="profileScreenSignOut"
-              onClick={() => auth.signOut()}
-            >
-              Sign Out
-            </button>
+            <div className="profileScreenButtons">
+              <button
+                className="profileScreenSignOut"
+                onClick={() => auth.signOut()}
+              >
+                Sign Out
+              </button>
+              <button
+                className="profileScreenHomeBtn"
+                onClick={() => history.push("/")}
+                visible={subscription.role}
+              >
+                Home
+              </button>
+            </div>
           </div>
         </div>
       </div>

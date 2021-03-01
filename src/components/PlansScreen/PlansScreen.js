@@ -39,7 +39,7 @@ function PlansScreen() {
           );
         });
       });
-  }, [user.uid, dispatch]);
+  }, [user, dispatch]);
 
   useEffect(() => {
     //get the products collection from firebase
