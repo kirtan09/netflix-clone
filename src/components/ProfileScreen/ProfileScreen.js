@@ -39,16 +39,18 @@ function ProfileScreen() {
               <button
                 className="profileScreenSignOut"
                 onClick={() => auth.signOut()}
+                style={!subscription.role ? { width: "100%" } : null}
               >
                 Sign Out
               </button>
-              <button
-                className="profileScreenHomeBtn"
-                onClick={() => history.push("/")}
-                visible={subscription.role}
-              >
-                Home
-              </button>
+              {subscription.role ? (
+                <button
+                  className="profileScreenHomeBtn"
+                  onClick={() => history.push("/")}
+                >
+                  Home
+                </button>
+              ) : null}
             </div>
           </div>
         </div>

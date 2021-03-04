@@ -1,0 +1,110 @@
+.landingPage-background {
+  background: url("../../assets/NetflixLoginBackground.jpg") center no-repeat;
+  background-size: cover;
+}
+
+.landingPage-logo {
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  width: 150px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.landingPage-signIn {
+  position: fixed;
+  right: 15px;
+  top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.landingPage-gradient {
+  width: 100%;
+  z-index: 1;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.landingPage-body {
+  position: relative;
+  top: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+  padding: 20px;
+}
+
+.landingPage-body h1 {
+  font-size: 3.125rem;
+  margin-bottom: 20px;
+}
+
+.landingPage-body h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.landingPage-body h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.landingPage-input {
+  margin: 20px;
+}
+
+.landingPage-input form input {
+  padding: 10px;
+  outline: none;
+  height: 30px;
+  width: 40%;
+  border: none;
+  max-width: 600px;
+}
+
+.landingPage-getStarted {
+  padding-top: 15.5px;
+  padding-bottom: 16.7px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .landingPage-body h1 {
+    font-size: 2.125rem;
+  }
+  .landingPage-body h2 {
+    font-size: 1.5rem;
+  }
+  .landingPage-body h3 {
+    font-size: 1rem;
+  }
+  .landingPage {
+    flex-direction: column;
+  }
+}

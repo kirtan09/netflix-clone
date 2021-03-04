@@ -1,6 +1,6 @@
 import "./App.scss";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
-import LoginScreen from "./components/LoginScreen/LoginScreen";
+import LoginScreen from "./components/LandingPage/LandingPage";
 import ProfileScreen from "./components/ProfileScreen/ProfileScreen";
 import {
   BrowserRouter as Router,
@@ -13,7 +13,7 @@ import { auth } from "./firebase";
 import { login, logout, selectUser } from "./features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-function App() {
+export default function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -49,5 +49,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
