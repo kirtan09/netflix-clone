@@ -12,31 +12,8 @@ export const Input = styled.input`
 `;
 
 export const Background = styled.div`
-  flex-direction: column;
-  background: url(${({ src }) => src}) top left / cover no-repeat;
+  background: url(${({ src }) => src}) center no-repeat;
   background-size: cover;
-`;
-
-export const Logo = styled.img`
-  position: fixed;
-  left: 15px;
-  top: 15px;
-  width: 150px;
-  object-fit: contain;
-  cursor: pointer;
-`;
-
-export const SignInBtn = styled.button`
-  position: fixed;
-  right: 15px;
-  top: 20px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #e50914;
-  border: none;
-  cursor: pointer;
-  outline: none;
 `;
 
 export const Gradient = styled.div`

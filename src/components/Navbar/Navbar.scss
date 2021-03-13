@@ -20,7 +20,6 @@
 .navbar-logo {
   position: fixed;
   left: 15px;
-  width: 80px;
   object-fit: contain;
   cursor: pointer;
 }
@@ -31,4 +30,17 @@
   width: 30px;
   object-fit: contain;
   cursor: pointer;
+}
+
+.navbar-signInBtn {
+  position: fixed;
+  right: 15px;
+  top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+  outline: none;
 }

@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
-import Logo from "../../assets/NetflixLogo.png";
 import Background from "../../assets/NetflixLoginBackground.jpg";
 import SignInScreen from "../SignInScreen/SignInScreen";
 import landinginfo from "../../informationData/landingInfo.json";
 import * as Style from "./LandingPageStyle";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 function LandingPage() {
   const [signUp, setSignUp] = useState(false);
@@ -18,10 +18,7 @@ function LandingPage() {
     <Style.Container>
       <Style.Background src={Background}>
         <Style.Gradient>
-          <Style.Logo src={Logo} alt="Netflix Logo" />
-          <Style.SignInBtn alt="Sign In" onClick={() => setSignUp(true)}>
-            Sign In
-          </Style.SignInBtn>
+          <Navbar btnAlt="Sign In" btnOnClick={() => setSignUp(true)} />
           <Style.Body>
             {!signUp ? (
               <>
