@@ -10,35 +10,34 @@
   margin-right: auto;
   max-width: 800px;
   padding: 10px 20px 10px 20px;
-}
 
-.profileScreenBody h1 {
-  font-size: 40px;
-  font-weight: 350;
-  border-bottom: 1px solid #282c2d;
-  margin-bottom: 20px;
-  margin-top: 25%;
+  h1 {
+    font-size: 40px;
+    font-weight: 350;
+    border-bottom: 1px solid #282c2d;
+    margin-bottom: 20px;
+    margin-top: 25%;
+  }
 }
 
 .profileScreenInfo {
   display: flex;
-}
-
-.profileScreenInfo img {
-  height: 100px;
+  img {
+    height: 100px;
+  }
 }
 
 .profileScreenDetails {
   color: white;
   margin-left: 30px;
   flex: 1;
-}
 
-.profileScreenDetails h2 {
-  background-color: gray;
-  padding: 15px;
-  font-size: 15px;
-  padding-left: 20px;
+  h2 {
+    background-color: gray;
+    padding: 15px;
+    font-size: 15px;
+    padding-left: 20px;
+  }
 }
 
 .profileScreenSignOut {
@@ -55,11 +54,11 @@
 
 .profileScreenPlans {
   margin-top: 20px;
-}
 
-.profileScreenPlans h3 {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #282c2d;
+  h3 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #282c2d;
+  }
 }
 
 .profileScreenButtons {

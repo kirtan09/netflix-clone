@@ -1,4 +1,3 @@
-import "./App.scss";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import LoginScreen from "./components/LandingPage/LandingPage";
 import ProfileScreen from "./components/ProfileScreen/ProfileScreen";

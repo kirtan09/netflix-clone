@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { auth } from "../../firebase";
 import "./SignInScreen.scss";
 
-function SignInScreen(props) {
+function SignInScreen({ emailAddress }) {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -40,7 +40,7 @@ function SignInScreen(props) {
           ref={emailRef}
           placeholder="Email"
           type="email"
-          defaultValue={props.emailAddress}
+          defaultValue={emailAddress}
         />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <button type="submit" onClick={signIn}>
