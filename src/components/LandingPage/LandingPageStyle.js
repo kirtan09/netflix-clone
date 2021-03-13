@@ -12,7 +12,8 @@ export const Input = styled.input`
 `;
 
 export const Background = styled.div`
-  background: ${({ background }) => background} center no-repeat;
+  flex-direction: column;
+  background: url(${({ src }) => src}) top left / cover no-repeat;
   background-size: cover;
 `;
 
